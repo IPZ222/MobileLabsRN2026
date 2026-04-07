@@ -1,50 +1,40 @@
-# Welcome to your Expo app 👋
+# Лабораторна робота №1: Використання Expo для створення найпростішого додатку React Native. Знайомство з основними компонентами.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Мета: 
+### Навчитися створювати та налаштовувати проєкт у середовищі Expo, ознайомитися зі структурою React Native застосунку та опанувати навички роботи з базовими компонентами.
 
-## Get started
+Застосунок побудований на фреймворку **React Native** з використанням екосистеми **Expo**. Це базовий проєкт, що містить 3 екрани: Головна сторінка (стрічка новин), Галерея (сітка зображень) та Профіль (форма редагування даних). Перемикання між екранами реалізовано через **@react-navigation/material-top-tabs**. Для відображення списків використано **FlatList** та **ScrollView**. Для оптимізації завантаження зображень застосовано компонент **Expo Image**.
+### Скріншоти застосунку
+| Новини | Галерея | Профіль |
+| :---: | :---: | :---: |
+| ![Screen 1](/lab1/screenshots/screenshot1.jpg) | ![Screen 2](/lab1/screenshots/screenshot2.jpg) | ![Screen 3](/lab1/screenshots/screenshot3.jpg) |
 
-1. Install dependencies
+---
 
+### Інструкція із запуску
+
+Для запуску проєкту локально виконайте наступні кроки:
+
+1. **Клонуйте репозиторій:**
+   ```bash
+   git clone https://github.com/ipz222_ii/MobileLabsRN2026.git
+
+2. **Перейдіть до папки проєкту**
+   ```bash
+   cd MobileLabsRN2026/lab1
+3. **Встановіть необхідні залежності:**
    ```bash
    npm install
-   ```
-
-2. Start the app
-
+4. **Запустіть Expo CLI:**
    ```bash
    npx expo start
-   ```
+5. **Відкрийте додаток:**
+   * Скануйте QR-код через додаток Expo Go на вашому смартфоні (Android/iOS).
+   * Або натисніть **a** для запуску на Android Emulator.
+   * Або натисніть **i** для запуску на iOS Simulator.
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+| Спосіб | Призначення | Особливості та відмінності під час тестування |
+| :--- | :--- | :--- |
+| **Expo Go** | Швидка розробка та демонстрація. | Дозволяє миттєво бачити зміни (Hot Reload). Не потребує встановленого Android Studio або Xcode. Обмежений лише стандартними модулями Expo. |
+| **Development Builds** | Глибоке тестування та кастомізація. | Створює "власний" клієнт Expo Go. Потрібен, якщо ви додаєте сторонні нативні бібліотеки, які не входять до стандартного набору Expo. |
+| **Емулятори** | Тестування без фізичного пристрою. | Дозволяють перевірити інтерфейс на різних роздільних здатностях екранів та версіях ОС. Проте не завжди передають продуктивність реального заліза. |
