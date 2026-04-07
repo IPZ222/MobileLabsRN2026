@@ -6,31 +6,31 @@ const newsData = [
   {
     id: '1',
     title: 'Новий кампус університету',
-    description: 'Відкрито новий сучасний кампус з коворкінгом та бібліотекою.',
+    description: 'Відкрито новий сучасний кампус без коворкінгу та бібліотеки.',
     date: '15 березня 2026',
-    imageUrl: 'https://picsum.photos/id/104/400/200',
+    imageUrl: 'https://www.zhitomir.info/f/images/2021/06/03/200509/39d427c11c490da3812965953dcaefe4_w859_h569.jpg',
     category: 'Освіта'
   },
   {
     id: '2',
     title: 'Стипендіальна програма 2026',
-    description: 'Стартував прийом заявок на академічну стипендію для відмінників.',
+    description: 'Її ніхто не отримає.',
     date: '10 березня 2026',
-    imageUrl: 'https://picsum.photos/id/20/400/200',
+    imageUrl: 'https://ztu.edu.ua/img/mainpage/header/photo11.jpg',
     category: 'Стипендії'
   },
   {
     id: '3',
     title: 'Хакатон зі штучного інтелекту',
-    description: 'Запрошуємо студентів взяти участь у щорічному хакатоні. Призи та стажування!',
+    description: 'Запрошуємо студентів не брати участь у щорічному хакатоні. Призи та стажування відсутні!',
     date: '5 березня 2026',
-    imageUrl: 'https://picsum.photos/id/26/400/200',
+    imageUrl: 'https://habrastorage.org/webt/ss/nw/w6/ssnww6z-tlpunuu8lhzgyxndpmw.jpeg',
     category: 'Події'
   },
   {
     id: '4',
     title: 'Міжнародна конференція',
-    description: 'Студенти можуть подати свої роботи на міжнародну конференцію.',
+    description: 'Студенти не можуть подати свої роботи на міжнародну конференцію.',
     date: '1 березня 2026',
     imageUrl: 'https://picsum.photos/id/42/400/200',
     category: 'Наука'
@@ -40,7 +40,7 @@ const newsData = [
     title: 'Спортивні змагання',
     description: 'Відкрита реєстрація на чемпіонат університету з футболу та волейболу.',
     date: '25 лютого 2026',
-    imageUrl: 'https://picsum.photos/id/96/400/200',
+    imageUrl: 'https://cdn4.suspilne.media/images/resize/720x1.78/2976baaaebd3b11d.jpg',
     category: 'Спорт'
   }
 ];
@@ -82,7 +82,7 @@ const HomeScreen = () => {
       {/* Hello */}
       <View style={styles.welcomeHeader}>
         <Text style={styles.welcomeTitle}>Новини та події</Text>
-        <Text style={styles.welcomeSubtitle}>Будь в курсі останніх новин університету</Text>
+        <Text style={styles.welcomeSubtitle}>Будь в курсі останніх новин Житомирської Політехніки</Text>
       </View>
 
       {/* Novostee */}

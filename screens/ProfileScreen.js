@@ -2,31 +2,63 @@ import React from 'react';
 import { View, Text, StyleSheet, TextInput, Button, Alert } from 'react-native';
 
 export default function ProfileScreen() {
-  const [name, setName] = React.useState('Іван Петренко');
-  const [group, setGroup] = React.useState('ІП-01');
+  const [mail, setMail] = React.useState('ipz222_ii@student.ztu.edu.ua');
+  const [group, setGroup] = React.useState('ІП3-22-2');
+  const [password, setPassword] = React.useState('ручками');
+  const [name, setName] = React.useState('Ілля');
+  const [surname, setSurname] = React.useState('Ільїн');
 
   const handleSave = () => {
-    Alert.alert('Збережено', `Ім'я: ${name}\nГрупа: ${group}`);
+    Alert.alert('Збережено', `Ім'я: ${surname} ${name}\nГрупа: ${group}\nПошта: ${mail}`);
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Профіль</Text>
-      
+      <Text>Пошта</Text>
       <TextInput
         style={styles.input}
-        placeholder="Ваше ім'я"
-        value={name}
-        onChangeText={setName}
+        placeholder="Електронна пошта"
+        value={mail}
+        onChangeText={setMail}
       />
-      
+      <Text>Пароль</Text>
       <TextInput
         style={styles.input}
-        placeholder="Ваша група"
+        placeholder="Пароль"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry={true}
+      />
+      <Text>Пароль (Ручками)</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Пароль (ручками)"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry={true}
+      />
+      <Text>Група</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Група"
         value={group}
         onChangeText={setGroup}
       />
-      
+      <Text>Прізвище</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Прізвище"
+        value={surname}
+        onChangeText={setSurname}
+      />
+      <Text>Ім&lsquo;я</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Ім'я"
+        value={name}
+        onChangeText={setName}
+      />
       <View style={styles.buttonContainer}>
         <Button title="Зберегти" onPress={handleSave} color="#4a90e2" />
       </View>

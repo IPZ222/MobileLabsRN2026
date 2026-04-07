@@ -42,7 +42,7 @@ export default function App() {
         </Tab.Navigator>
       </NavigationContainer>
       <View style={styles.footer}>
-        <Text style={styles.footerText}>Ільїн Ілля ІПЗ 22-2</Text>
+        <Text style={styles.footerText}>Ільїн Ілля ІПЗ 221-2</Text>
       </View>
     </SafeAreaView>
   );
@@ -69,8 +69,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderTopWidth: 1,
     borderTopColor: '#ddd',
-    marginTop: 10,
-    marginHorizontal: 15,
   },
   footerText: {
     fontSize: 14,
