@@ -7,7 +7,7 @@
 ### Скріншоти застосунку
 | Новини | Галерея | Профіль |
 | :---: | :---: | :---: |
-| ![Screen 1](/screenshots/screenshot1.jpg) | ![Screen 2](/screenshots/screenshot2.jpg) | ![Screen 3](/screenshots/screenshot3.jpg) |
+| ![Screen 1](/lab-1/screenshots/screenshot1.jpg) | ![Screen 2](/lab-1/screenshots/screenshot2.jpg) | ![Screen 3](/lab-1/screenshots/screenshot3.jpg) |
 
 ---
 
