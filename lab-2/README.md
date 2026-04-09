@@ -2,7 +2,7 @@
 
 ## Мета
 
-ознайомлення з принципами навігації у мобільних застосунках React Native
+Ознайомлення з принципами навігації у мобільних застосунках React Native.
 
 ## Опис реалізованого функціоналу
 
@@ -24,7 +24,7 @@
 
 1. Клонуйте репозиторій:
    ```bash
-   git clone https://github.com/ВАШ_ЛОГІН/MobileLabsRN2026.git
+   git clone https://github.com/ipz222_ii/MobileLabsRN2026.git
 2. **Перейдіть до папки проєкту**
    ```bash
    cd MobileLabsRN2026/lab2
