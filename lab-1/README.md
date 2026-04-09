@@ -4,10 +4,12 @@
 ### Навчитися створювати та налаштовувати проєкт у середовищі Expo, ознайомитися зі структурою React Native застосунку та опанувати навички роботи з базовими компонентами.
 
 Застосунок побудований на фреймворку **React Native** з використанням екосистеми **Expo**. Це базовий проєкт, що містить 3 екрани: Головна сторінка (стрічка новин), Галерея (сітка зображень) та Профіль (форма редагування даних). Перемикання між екранами реалізовано через **@react-navigation/material-top-tabs**. Для відображення списків використано **FlatList** та **ScrollView**. Для оптимізації завантаження зображень застосовано компонент **Expo Image**.
+
 ### Скріншоти застосунку
+
 | Новини | Галерея | Профіль |
 | :---: | :---: | :---: |
-| ![Screen 1](/screenshots/screenshot1.jpg) | ![Screen 2](/screenshots/screenshot2.jpg) | ![Screen 3](/screenshots/screenshot3.jpg) |
+| ![Screen 1](/lab-1/screenshots/screenshot1.jpg) | ![Screen 2](/lab-1/screenshots/screenshot2.jpg) | ![Screen 3](/lab-1/screenshots/screenshot3.jpg) |
 
 ---
 
