@@ -20,6 +20,12 @@
 - **Динамічні заголовки:** Заголовок екрана деталей автоматично змінюється залежно від назви обраної новини.
 - **Кастомне меню:** Створено власний компонент для Drawer, що містить інформацію про автора та зручні переходи.
 
+### Скріншоти застосунку
+
+| Стрічнка новин | Деталі новин | Контакти | Кастомне меню |
+| :---: | :---: | :---: | :---: |
+| ![Screen 1](/lab-2/screenshots/screenshot1.jpg) | ![Screen 2](/lab-2/screenshots/screenshot2.png) | ![Screen 3](/lab-2/screenshots/screenshot3.jpg) | ![Screen 4](/lab-2/screenshots/screenshot4.jpg) |
+
 ## Інструкція із запуску
 
 1. Клонуйте репозиторій:
@@ -38,11 +44,6 @@
    * Скануйте QR-код через додаток Expo Go на вашому смартфоні.
    * Або натисніть **a** для запуску на Android Emulator.
    * Або натисніть **i** для запуску на iOS Simulator.
-
-### Скріншоти застосунку
-| Стрічнка новин | Деталі новин | Контакти | Кастомне меню |
-| :---: | :---: | :---: | :---: |
-| ![Screen 1](/lab2/screenshots/screenshot1.jpg) | ![Screen 2](/lab2/screenshots/screenshot2.png) | ![Screen 3](/lab2/screenshots/screenshot3.jpg) | ![Screen 4](/lab2/screenshots/screenshot4.jpg) |
 
 ### Чим відрізняється FlatList від ScrollView?
 FlatList а відміну від ScrollView, не рендерить усі елементи одразу.
