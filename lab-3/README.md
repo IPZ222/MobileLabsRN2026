@@ -34,7 +34,7 @@
 
 | Гра світла тема | Гра темна тема | Завдання | Налаштування |
 | :---: | :---: | :---: | :---: |
-| ![Screen 1](/lab3/screenshots/screenshot1.jpg) | ![Screen 2](/lab3/screenshots/screenshot2.jpg) | ![Screen 3](/lab3/screenshots/screenshot3.jpg) | ![Screen 4](/lab3/screenshots/screenshot4.jpg) |
+| ![Screen 1](/lab-3/screenshots/screenshot1.jpg) | ![Screen 2](/lab-3/screenshots/screenshot2.jpg) | ![Screen 3](/lab-3/screenshots/screenshot3.jpg) | ![Screen 4](/lab-3/screenshots/screenshot4.jpg) |
 
 ## Інструкція із запуску
 
