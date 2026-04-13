@@ -26,7 +26,7 @@
 
 | Екран помилки | Екран логіну | Екран реєстрації | Екран каталогу | Екран товару |
 | :---: | :---: | :---: | :---: | :---: |
-| ![Screen 1](/lab-5/screenshots/screenshot5.jpg) | ![Screen 2](/lab-5/screenshots/screenshot1.jpg) | ![Screen 3](/lab-5/screenshots/screenshot2.jpg) || ![Screen 4](/lab5/screenshots/screenshot3.jpg) || ![Screen 5](/lab5/screenshots/screenshot4.jpg) |
+| ![Screen 1](/lab-5/screenshots/screenshot5.jpg) | ![Screen 2](/lab-5/screenshots/screenshot1.jpg) | ![Screen 3](/lab-5/screenshots/screenshot2.jpg) || ![Screen 4](/lab-5/screenshots/screenshot3.jpg) || ![Screen 5](/lab-5/screenshots/screenshot4.jpg) |
 ---
 
 ### Інструкція із запуску
