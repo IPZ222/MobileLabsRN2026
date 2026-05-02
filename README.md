@@ -15,3 +15,5 @@
 5. [Lab 5 — Expo Router](lab-5/)
 
 6. [Lab 6 — Firebase](lab-6/)
+
+7. [Lab 6 — Supabase](lab-6_Supabase/)

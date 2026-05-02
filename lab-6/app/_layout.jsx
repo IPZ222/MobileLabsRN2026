@@ -8,15 +8,13 @@ function RootLayoutNav() {
   const router = useRouter();
 
   useEffect(() => {
-    if (loading) return; // Чекаємо, поки Firebase перевірить стан
+    if (loading) return; 
 
     const inAuthGroup = segments[0] === '(auth)';
 
     if (!user && !inAuthGroup) {
-      // Якщо не залогінений і НЕ в папці auth — на логін
       router.replace('/login');
     } else if (user && inAuthGroup) {
-      // Якщо залогінився і ВСЕ ЩЕ в папці auth — в профіль
       router.replace('/(app)');
     }
   }, [user, loading, segments]);

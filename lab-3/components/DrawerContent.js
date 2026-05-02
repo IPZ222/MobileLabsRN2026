@@ -45,11 +45,9 @@ export default function DrawerContent(props) {
           </View>
         </View>
       </LinearGradient>
-
       <View style={styles.menuSection}>
         <DrawerItemList {...props} />
       </View>
-
       <View style={styles.infoSection}>
         <TouchableOpacity style={styles.infoItem} onPress={handleVersionPress}>
           <Text style={styles.infoIcon}>⚛️</Text>
@@ -57,7 +55,6 @@ export default function DrawerContent(props) {
           <Text style={styles.infoValue}>v2.0.0</Text>
         </TouchableOpacity>
       </View>
-
       <View style={styles.footer}>
         <Text style={styles.footerText}>Житомирська Політехніка</Text>
         <Text style={styles.footerSubtext}>© 2026 QuantumTap</Text>

@@ -4,37 +4,38 @@ import { Vibration } from 'react-native';
 export const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
-  // Загальні очки
   const [score, setScore] = useState(0);
-
-  // Статистика для досягнень
+  
+  // Додаємо нові поля, щоб вони були ініціалізовані за замовчуванням
   const [stats, setStats] = useState({
     clicks: 0,
     doubleClicks: 0,
     longPresses: 0,
-    swipes: 0,
+    swipesLeft: 0,  // Додано
+    swipesRight: 0, // Додано
     pinches: 0,
+    pans: 0,        // Додано для завдання "Перетягнути"
   });
 
-  // Налаштування
   const [settings, setSettings] = useState({
     vibration: true,
     darkTheme: false,
   });
 
-  // Функція додавання очок та оновлення статистики
   const addPoints = (amount, actionType) => {
     setScore(prev => prev + amount);
     
     if (actionType) {
       setStats(prev => ({
         ...prev,
-        [actionType]: prev[actionType] + 1
+        // Використовуємо (prev[actionType] || 0), щоб уникнути NaN, 
+        // якщо ключ раптом не знайдено
+        [actionType]: (prev[actionType] || 0) + 1
       }));
     }
 
     if (settings.vibration) {
-      Vibration.vibrate(50); // Легка вібрація, якщо увімкнена
+      Vibration.vibrate(50);
     }
   };
 
@@ -44,7 +45,15 @@ export const GameProvider = ({ children }) => {
 
   const resetGame = () => {
     setScore(0);
-    setStats({ clicks: 0, doubleClicks: 0, longPresses: 0, swipes: 0, pinches: 0 });
+    setStats({ 
+      clicks: 0, 
+      doubleClicks: 0, 
+      longPresses: 0, 
+      swipesLeft: 0, 
+      swipesRight: 0, 
+      pinches: 0, 
+      pans: 0 
+    });
   };
 
   return (

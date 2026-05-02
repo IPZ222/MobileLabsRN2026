@@ -7,7 +7,7 @@ export default function AuthLayout() {
         headerStyle: { backgroundColor: '#f5f5f5' },
         headerTintColor: '#333',
         headerTitleStyle: { fontWeight: 'bold' },
-        headerShadowVisible: false, // Прибирає лінію під хедером
+        headerShadowVisible: false, 
       }}
     >
       <Stack.Screen name="login" options={{ title: 'Вхід' }} />

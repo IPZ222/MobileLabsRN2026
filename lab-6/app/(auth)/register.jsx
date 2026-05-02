@@ -22,7 +22,6 @@ export default function Register() {
 
     try {
       await register(email, password);
-      // Після успіху RootLayout автоматично перекине в (app)
     } catch (error) {
       Alert.alert("Помилка реєстрації", error.message);
     }

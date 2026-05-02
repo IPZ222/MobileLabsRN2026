@@ -11,9 +11,9 @@ export default function GameScreen() {
     addPoints(points, type);
   };
 
-  const handleRandomSwipe = () => {
-    const random = Math.floor(Math.random() * 100) + 1;
-    addPoints(random, 'swipes');
+  const handleSwipe = (direction) => {
+    const random = Math.floor(Math.random() * 50) + 1;
+    addPoints(random, direction === 'right' ? 'swipesRight' : 'swipesLeft');
   };
 
   const offset = useSharedValue({ x: 0, y: 0 });
@@ -22,24 +22,60 @@ export default function GameScreen() {
   const savedScale = useSharedValue(1);
 
   const panGesture = Gesture.Pan()
-    .onUpdate((e) => { offset.value = { x: e.translationX + start.value.x, y: e.translationY + start.value.y }; })
-    .onEnd(() => { start.value = { x: offset.value.x, y: offset.value.y }; });
+    .onUpdate((e) => { 
+      offset.value = { x: e.translationX + start.value.x, y: e.translationY + start.value.y }; 
+    })
+    .onEnd(() => { 
+      start.value = { x: offset.value.x, y: offset.value.y };
+      runOnJS(handleAction)(0, 'pans'); 
+    });
 
-  const flingGesture = Gesture.Fling().direction(Directions.RIGHT | Directions.LEFT)
-    .onEnd(() => { runOnJS(handleRandomSwipe)(); });
+  const flingRight = Gesture.Fling()
+    .direction(Directions.RIGHT)
+    .onEnd(() => { runOnJS(handleSwipe)('right'); });
+
+  const flingLeft = Gesture.Fling()
+    .direction(Directions.LEFT)
+    .onEnd(() => { runOnJS(handleSwipe)('left'); });
 
   const pinchGesture = Gesture.Pinch()
     .onUpdate((e) => { scale.value = savedScale.value * e.scale; })
-    .onEnd(() => { runOnJS(handleAction)(5, 'pinches'); scale.value = withSpring(1); savedScale.value = 1; });
+    .onEnd(() => { 
+      runOnJS(handleAction)(5, 'pinches'); 
+      scale.value = withSpring(1); 
+      savedScale.value = 1; 
+    });
 
-  const singleTap = Gesture.Tap().onEnd((_, success) => { if (success) runOnJS(handleAction)(1, 'clicks'); });
-  const doubleTap = Gesture.Tap().numberOfTaps(2).onEnd((_, success) => { if (success) runOnJS(handleAction)(10, 'doubleClicks'); });
-  const longPress = Gesture.LongPress().minDuration(800).onEnd((_, success) => { if (success) runOnJS(handleAction)(50, 'longPresses'); });
+  const longPress = Gesture.LongPress()
+    .minDuration(3000) 
+    .onEnd((event, success) => { 
+      if (success) runOnJS(handleAction)(50, 'longPresses'); 
+    });
 
-  const composedGesture = Gesture.Race(flingGesture, panGesture, pinchGesture, Gesture.Exclusive(doubleTap, singleTap, longPress));
+  const doubleTap = Gesture.Tap()
+    .numberOfTaps(2)
+    .onEnd((_, success) => { 
+      if (success) runOnJS(handleAction)(10, 'doubleClicks'); 
+    });
+
+  const singleTap = Gesture.Tap()
+    .onEnd((_, success) => { 
+      if (success) runOnJS(handleAction)(1, 'clicks'); 
+    });
+
+  const composedGesture = Gesture.Simultaneous(
+    Gesture.Race(flingRight, flingLeft),
+    panGesture,
+    pinchGesture,
+    Gesture.Exclusive(doubleTap, singleTap, longPress)
+  );
 
   const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ translateX: offset.value.x }, { translateY: offset.value.y }, { scale: scale.value }],
+    transform: [
+      { translateX: offset.value.x }, 
+      { translateY: offset.value.y }, 
+      { scale: scale.value }
+    ],
   }));
 
   const bgColor = settings.darkTheme ? '#1e272e' : '#f5f7fa';
@@ -48,28 +84,41 @@ export default function GameScreen() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={[styles.container, { backgroundColor: bgColor }]}>
-        <View style={[styles.scoreBadge, {backgroundColor: bgColor}]}><Text style={styles.scoreText}>Очки: {score}</Text></View>
+        <View style={[styles.scoreBadge, {backgroundColor: settings.darkTheme ? '#2f3640' : '#fff'}]}>
+          <Text style={styles.scoreText}>Очки: {score}</Text>
+        </View>
 
         <View style={styles.gameBox}>
           <GestureDetector gesture={composedGesture}>
-            <Animated.View style={[styles.target, animatedStyle]}><Text style={styles.targetText}>ABOBA</Text></Animated.View>
+            <Animated.View style={[styles.target, animatedStyle]}>
+              <Text style={styles.targetText}>ABOBA</Text>
+            </Animated.View>
           </GestureDetector>
         </View>
-        <Text style={[styles.hint, {color: textColor}]}>Тикни - матимеш очко{"\n"}Двічі тикни - 10 очок{"\n"}Притисни - 50 очок{"\n"}Свайпни - ??? очок{"\n"}Розтягни - 5 очок</Text>
+        
+        <Text style={[styles.hint, {color: textColor}]}>
+          Тикни - 1 очко{"\n"}
+          Подвійний тик - 10 очок{"\n"}
+          Тримай 3 сек - 50 очок{"\n"}
+          Свайп вліво/вправо - бонус{"\n"}
+          Розтягни - 5 очок
+        </Text>
       </View>
     </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f5f7fa', alignItems: 'center' },
+  container: { flex: 1, alignItems: 'center' },
   scoreBadge: {
     marginTop: 20,
-    backgroundColor: '#fff',
     paddingHorizontal: 30,
     paddingVertical: 10,
     borderRadius: 50,
     elevation: 4,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
   },
   scoreText: { fontSize: 24, fontWeight: 'bold', color: '#4a90e2' },
   gameBox: { flex: 1, width: '100%', justifyContent: 'center', alignItems: 'center' },
@@ -83,5 +132,5 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   targetText: { color: '#fff', fontWeight: '900', fontSize: 20 },
-  hint: { marginBottom: 100, color: '#888', fontStyle: 'italic', textAlign: 'center' }
+  hint: { marginBottom: 100, fontStyle: 'italic', textAlign: 'center', lineHeight: 22 }
 });

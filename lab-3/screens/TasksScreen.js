@@ -7,13 +7,16 @@ export default function TasksScreen() {
   const bgColor = settings.darkTheme ? '#2f3640' : '#fff';
   const textColor = settings.darkTheme ? '#f5f6fa' : '#333';
   const tasks = [
-    { id: '1', title: 'Майстер кліку', desc: 'Зробити 10 звичайних кліків', goal: 10, current: stats.clicks, icon: '👆' },
+    { id: '1', title: 'Майстер кліку', desc: 'Натиснути на об\'єкт 10 разів', goal: 10, current: stats.clicks, icon: '👆' },
     { id: '2', title: 'Дуплет', desc: 'Зробити подвійний клік 5 разів', goal: 5, current: stats.doubleClicks, icon: '✌️' },
-    { id: '3', title: 'Витривалість', desc: 'Утримувати об\'єкт 3 рази', goal: 3, current: stats.longPresses, icon: '⏳' },
-    { id: '4', title: 'Розтяжка', desc: 'Змінити розмір через Pinch 5 разів', goal: 5, current: stats.pinches, icon: '🤏' },
-    { id: '5', title: 'Свайпер', desc: 'Зробити свайп 3 рази', goal: 3, current: stats.swipes, icon: '↔️' },
-    { id: '6', title: 'Мільйонер', desc: 'Набрати загалом 1000 очок', goal: 1000, current: score, icon: '💰' },
-  ];
+    { id: '3', title: 'Витривалість', desc: 'Утримувати об\'єкт 3 секунди', goal: 3, current: stats.longPresses, icon: '⏳' },
+    { id: '4', title: 'Транспортування', desc: 'Перетягнути об\'єкт по екрану', goal: 1, current: stats.pans > 0 ? 1 : 0, icon: '🎯' },
+    { id: '5', title: 'Спринт вправо', desc: 'Швидкий свайп вправо', goal: 1, current: stats.swipesRight || 0, icon: '➡️' },
+    { id: '6', title: 'Спринт вліво', desc: 'Швидкий свайп вліво', goal: 1, current: stats.swipesLeft || 0, icon: '⬅️' },
+    { id: '7', title: 'Розтяжка', desc: 'Змінити розмір через Pinch', goal: 5, current: stats.pinches, icon: '🤏' },
+    { id: '8', title: 'Перша сотня', desc: 'Набрати загалом 100 очок', goal: 100, current: score, icon: '💯' },
+    { id: '9', title: 'Нічна зміна', desc: 'Увімкнути темну тему в налаштуваннях', goal: 1, current: settings.darkTheme ? 1 : 0, icon: '🌙' },
+];
 
   const renderItem = ({ item }) => {
     const isDone = item.current >= item.goal;

@@ -13,7 +13,7 @@ export default function AppLayout() {
         name="index" 
         options={{ 
           title: 'Мій Профіль',
-          headerRight: () => null, // Тут можна додати іконку виходу пізніше
+          headerRight: () => null,
         }} 
       />
     </Stack>
